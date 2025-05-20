@@ -45,8 +45,8 @@ html {
     --subtitle: 24px "Merriweather", serif;
     --body: 16px/1.4 "Montserrat", sans-serif;
     --small: 14px "Montserrat", sans-serif;
-    --preTitle: bold uppercase 12px "Montserrat", sans-serif;
-    --buttonText: bold uppercase 16px "Montserrat", sans-serif;
+    --preTitle: bold 12px "Montserrat", sans-serif;
+    --buttonText: bold 16px "Montserrat", sans-serif;
     --link: bold 16px "Montserrat", sans-serif var(--gylden);
 
     --header1Mobil: bold 26px "Montserrat", sans-serif;
@@ -56,8 +56,10 @@ html {
     --subtitleMobil: 14px "Merriweather", serif;
     --bodyMobil: 12px/1.4 "Montserrat", sans-serif;
     --smallMobil: 11px "Montserrat", sans-serif;
-    --buttonTextMobil: bold uppercase 12px "Montserrat", sans-serif;
+    --buttonTextMobil: bold 12px "Montserrat", sans-serif;
     --linkMobil: bold 12px "Montserrat", sans-serif var(--gylden);
+
+
     /***********************************[COLORS]*************************************/
     --rolig: #396e56;
     --rolig70: #759A89;

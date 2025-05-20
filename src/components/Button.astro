@@ -1,0 +1,27 @@
+---
+import "../styles/global.css";
+const { link, text, buttonColor, textColor } = Astro.props;
+---
+
+<a href={link} style={`color: ${textColor}; background-color: ${buttonColor}`}>{text}</a>
+
+<style>
+  a {
+    font: var(--buttonText);
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 9px 26px;
+    border-radius: 50px;
+    transition: 0.2s;
+  }
+  a:hover {
+    filter: brightness(1.25);
+  }
+
+  @media screen and (max-width: 900px) {
+    a {
+      font: var(--buttonTextMobil);
+        padding: 9px 16px;
+    }
+  }
+</style>
