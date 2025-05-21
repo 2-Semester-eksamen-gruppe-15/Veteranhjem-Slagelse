@@ -3,11 +3,23 @@ import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
+import Yellow_section from "../components/Yellow_section.astro";
+import Button from "../components/Button.astro";
 ---
 
 <Layout title="Støt">
   <Menu />
   <Introduktion_section />
-
+  <Yellow_section title="Hvordan kan du støtte?" img="/imgs/testimg2.png">
+    <h4 style="color: var(--gylden);">Giv et bidrag</h4>
+    <p>Med din støtte kan vi skabe flere aktiviteter, flere varme måltider og mere fællesskab. Du kan støtte med et valgfrit beløb enten én gang eller som fast støtte. Alle beløb gør en forskel.</p>
+    <h4 style="color: var(--gylden);">Støt med praktiske ting</h4>
+    <p>Vi tager gerne imod brugbare ting, som fx spil, udstyr til aktiviteter eller materialer til kreative projekter.</p>
+    <h4 style="color: var(--gylden);">Del vores budskab</h4>
+    <p>Hjælp os med at sprede kendskabet til veteranhjemmet del vores opslag, inviter dine venner eller følg os på sociale medier.</p>
+    <h4 style="color: var(--gylden);">Bliv frivillig</h4>
+    <p style="margin-bottom: 40px;">Vi har brug for frivillige til mange forskellige opgaver både praktiske, sociale og støttende.</p>
+    <Button text="bliv frivillig" link="/frivillig" textColor="white" buttonColor="var(--skov)" />
+  </Yellow_section>
   <Footer />
 </Layout>

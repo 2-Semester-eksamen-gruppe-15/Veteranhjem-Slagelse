@@ -3,11 +3,24 @@ import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
+import Yellow_section from "../components/Yellow_section.astro";
+import Button from "../components/Button.astro";
+import YellowSection from "../components/Yellow_section.astro";
 ---
 
 <Layout title="Bliv Frivillig">
   <Menu />
   <Introduktion_section />
-
-  <Footer />
+  <YellowSection title="Hvad kan du hjælpe med?" img="/imgs/testimg3.png">
+    <p>Du kan fx:</p>
+    <ul>
+      <li><p>Være med til at skabe hygge og ro i huset</p></li>
+      <li><p>Hjælpe til ved fællesspisning eller arrangementer</p></li>
+      <li><p>Lytte og være til stede for veteraner og pårørende</p></li>
+      <li><p>Give en hånd med praktiske opgaver</p></li>
+      <li><p>Dække vagter om aftenen eller i weekender</p></li>
+    </ul>
+    <p>Du bliver ikke kastet ud i det alene - vi sørger for en god introduktion og støtter dig undervejs.</p>
+    <Footer />
+  </YellowSection>
 </Layout>

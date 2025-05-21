@@ -41,7 +41,7 @@ html {
     --header1: bold 64px "Montserrat", sans-serif;
     --header2: bold 40px "Montserrat", sans-serif;
     --header3: bold 24px "Montserrat", sans-serif;
-    --header4: bold 18px/1.5 "Montserrat", sans-serif;
+    --header4: bold 18px "Montserrat", sans-serif;
     --subtitle: 24px "Merriweather", serif;
     --body: 16px/1.4 "Montserrat", sans-serif;
     --small: 14px "Montserrat", sans-serif;
@@ -68,6 +68,49 @@ html {
     --rolig10: #ECF1EF;
     --harmoni: #C0DCB0;
     --gylden: #E19F25;
+    --gylden20: #f9ecd3;
     --skov: #244738;
 
+}
+
+h1 {
+    font: var(--header1);
+}
+
+h2 {
+    font: var(--header2);
+}
+
+h3 {
+    font: var(--header3);
+}
+
+h4 {
+    font: var(--header4);
+}
+
+p {
+    font: var(--body);
+}
+
+@media screen and (max-width: 900px) {
+    h1 {
+        font: var(--header1Mobil);
+    }
+
+    h2 {
+        font: var(--header2Mobil);
+    }
+
+    h3 {
+        font: var(--header3Mobil);
+    }
+
+    h4 {
+        font: var(--header4Mobil);
+    }
+
+    p {
+        font: var(--bodyMobil);
+    }
 }
