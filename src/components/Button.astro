@@ -1,9 +1,10 @@
 ---
 import "../styles/global.css";
-const { link, text, buttonColor, textColor } = Astro.props;
+const { link, text, buttonColor, textColor, size } = Astro.props;
+var buttonSize = size === "big" ? "big" : "";
 ---
 
-<a href={link} style={`color: ${textColor}; background-color: ${buttonColor}`}>{text}</a>
+<a id="button" href={link} style={`color: ${textColor}; background-color: ${buttonColor};`} class={buttonSize}>{text}</a>
 
 <style>
   a {
@@ -18,10 +19,19 @@ const { link, text, buttonColor, textColor } = Astro.props;
     filter: brightness(1.25);
   }
 
+  .big {
+    font: var(--header3);
+    text-transform: uppercase;
+  }
+
   @media screen and (max-width: 900px) {
     a {
       font: var(--buttonTextMobil);
-        padding: 9px 16px;
+      padding: 9px 16px;
+    }
+
+    .big {
+      font: var(--header3Mobil);
     }
   }
 </style>
