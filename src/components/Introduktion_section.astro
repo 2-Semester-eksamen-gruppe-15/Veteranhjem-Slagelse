@@ -6,7 +6,7 @@ const { title, subtitle, imgSrc, imgAlt = "", highlight = "" } = Astro.props;
 
 <section class="grid_section">
   <div class="grid_text">
-    {highlight && <p class="highlight">{highlight}</p>}
+    {<p class="highlight">{highlight}</p>}
     <slot />
   </div>
 
