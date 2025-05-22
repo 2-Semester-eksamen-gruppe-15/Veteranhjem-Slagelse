@@ -1,0 +1,66 @@
+---
+const { title, subtitle, imgSrc, imgAlt = "", highlight = "" } = Astro.props;
+---
+<h2>{title}</h2>
+<p class="subtitle">{subtitle}</p>
+
+<section class="grid_section">
+  <div class="grid_text">
+    {<p class="highlight">{highlight}</p>}
+    <slot />
+  </div>
+
+  <div class="grid_img">
+    <img src={imgSrc} alt={imgAlt} />
+  </div>
+</section>
+
+<style>
+  h2 {
+    color: var(--skov);
+    font: var(--header1);
+    text-align: center;
+  }
+
+  .subtitle {
+    font: var(--subtitle);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .grid_section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    padding: 40px 100px;
+ margin: 0 auto;
+    max-width: 1400px;
+  }
+
+  .grid_text p {
+    margin-bottom: 1rem;
+  }
+
+  .highlight {
+    color: var(--gylden);
+   font: var(--header4);
+    margin-bottom: 1rem;
+  }
+
+  .grid_img img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .grid_section {
+      grid-template-columns: 1fr;
+      padding: 20px;
+    }
+
+    h2, .subtitle {
+      text-align: center;
+    }
+  }
+</style>
