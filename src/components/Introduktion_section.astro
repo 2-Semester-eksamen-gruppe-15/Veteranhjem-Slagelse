@@ -1,12 +1,11 @@
 ---
-const { title, subtitle, imgSrc, imgAlt = "", highlight = "" } = Astro.props;
+const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
 ---
 <h2>{title}</h2>
 <p class="subtitle">{subtitle}</p>
 
 <section class="grid_section">
   <div class="grid_text">
-    {<p class="highlight">{highlight}</p>}
     <slot />
   </div>
 
@@ -41,11 +40,7 @@ const { title, subtitle, imgSrc, imgAlt = "", highlight = "" } = Astro.props;
     margin-bottom: 1rem;
   }
 
-  .highlight {
-    color: var(--gylden);
-   font: var(--header4);
-    margin-bottom: 1rem;
-  }
+
 
   .grid_img img {
     width: 100%;
@@ -61,6 +56,7 @@ const { title, subtitle, imgSrc, imgAlt = "", highlight = "" } = Astro.props;
 
     h2, .subtitle {
       text-align: center;
+      padding: 10px;
     }
   }
 </style>
