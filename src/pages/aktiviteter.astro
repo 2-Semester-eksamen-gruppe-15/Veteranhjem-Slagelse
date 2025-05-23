@@ -3,11 +3,18 @@ import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
+import Citat from '../components/Citater.astro';
+
 ---
 
 <Layout title="Aktiviteter & Tilbud">
   <Menu />
   <Introduktion_section />
-
+<Citat
+  image="../imgs/citat_aktiviteter.webp"
+  quote="Det er virkelig rart at være en del af noget igen. Aktiviteterne her giver struktur, fællesskab – og noget at glæde sig til."
+  name="Jens, 54 år"
+  title="veteran"
+/>
   <Footer />
 </Layout>

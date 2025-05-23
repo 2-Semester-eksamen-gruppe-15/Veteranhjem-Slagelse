@@ -3,9 +3,10 @@ import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
-import Yellow_section from "../components/Yellow_section.astro";
 import Button from "../components/Button.astro";
 import YellowSection from "../components/Yellow_section.astro";
+import Citat from '../components/Citater.astro';
+
 ---
 
 <Layout title="Bliv Frivillig">
@@ -21,6 +22,13 @@ import YellowSection from "../components/Yellow_section.astro";
       <li><p>Dække vagter om aftenen eller i weekender</p></li>
     </ul>
     <p>Du bliver ikke kastet ud i det alene - vi sørger for en god introduktion og støtter dig undervejs.</p>
-    <Footer />
   </YellowSection>
+  <Citat
+  image="../imgs/citat_frivillig.webp"
+  quote="Det giver så meget mening at være frivillig her. Bare det at være til stede og gøre hverdagen lidt lettere for en anden – det føles vigtigt."
+  name="Karen, 34 år"
+  title="frivillig"
+/>
+    <Footer />
+
 </Layout>

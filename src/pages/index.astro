@@ -4,11 +4,20 @@ import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Hero_section from "../components/Hero_section.astro";
 import Button from "../components/Button.astro";
+import Citat from '../components/Citater.astro';
+
 ---
 
 <Layout title="Veteranhjem Slagelse">
   <Menu />
   <Hero_section />
   <Button text="se aktiviteter" link="/aktiviteter" textColor="white" buttonColor="var(--skov)" size="big" />
+<Citat
+  image="../imgs/citat_forside.webp"
+  quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god."
+  name="Dorte, 72 år"
+  title="forælder til veteran"
+/>
+
   <Footer />
 </Layout>

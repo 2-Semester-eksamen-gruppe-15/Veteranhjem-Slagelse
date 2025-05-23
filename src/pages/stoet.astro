@@ -5,6 +5,7 @@ import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
 import Yellow_section from "../components/Yellow_section.astro";
 import Button from "../components/Button.astro";
+import Citat from '../components/Citater.astro';
 ---
 
 <Layout title="Støt">
@@ -21,5 +22,11 @@ import Button from "../components/Button.astro";
     <p style="margin-bottom: 40px;">Vi har brug for frivillige til mange forskellige opgaver både praktiske, sociale og støttende.</p>
     <Button text="bliv frivillig" link="/frivillig" textColor="white" buttonColor="var(--skov)" />
   </Yellow_section>
+   <Citat
+  image="../imgs/citat_stoet.webp"
+  quote="Organisationer som denne gør en forskel, som ikke kan måles i tal – men i tryghed, fællesskab og menneskelige møder. De fortjener al den støtte, de kan få."
+  name="Katrine, 38 år"
+  title="pårørende"
+/>
   <Footer />
 </Layout>
