@@ -1,22 +1,19 @@
 ---
-// Calendar.astro - Interactive calendar component for Astro.js with Supabase integration
-
 // TypeScript interface defining the structure of event data from Supabase
 interface Event {
   id: number;
   created_at: string;
   title: string;
   description: string;
-  day: number; // Day of the month (1-31)
-  month: number; // Month (1-12)
-  year: number; // Full year (e.g., 2025)
-  start_time: string; // Start time in HH:MM format
-  end_time: string; // End time in HH:MM format
-  address: string; // Event location/address
-  subtitle: string; // Additional event info/subtitle
-  image: string; // URL to event image
+  day: number;
+  month: number;
+  year: number;
+  start_time: string;
+  end_time: string;
+  address: string;
+  subtitle: string;
+  image: string;
 }
-
 // Fetch all events from Supabase database
 const response = await fetch("https://gayliuppmzloxkcaafnu.supabase.co/rest/v1/Kalender", {
   headers: {
@@ -124,9 +121,6 @@ const currentDay = now.getDate();
     grid-template-columns: repeat(7, 1fr);
     gap: 4px;
     background-color: var(--gylden20);
-    background-image: url("../watermark/VANDMÆRKE-H.png");
-    background-repeat: no-repeat;
-    background-position: 120% 0;
     padding: 10px;
     padding-inline: 10vw;
   }
@@ -431,6 +425,12 @@ const currentDay = now.getDate();
     setupEventHandlers();
   });
 
+  function timeToMinutes(timeStr) {
+    if (!timeStr) return 0;
+    const [hours, minutes] = timeStr.split(":").map(Number);
+    return hours * 60 + minutes;
+  }
+
   function renderCalendar() {
     const monthTitle = document.getElementById("current-month");
     monthTitle.textContent = `${monthNames[displayMonth - 1]}, ${displayYear}`;
@@ -454,7 +454,7 @@ const currentDay = now.getDate();
       const day = daysInPrevMonth - i;
       const prevMonthNum = displayMonth === 1 ? 12 : displayMonth - 1;
       const prevYear = displayMonth === 1 ? displayYear - 1 : displayYear;
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === prevMonthNum && event.year === prevYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === prevMonthNum && event.year === prevYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
@@ -466,7 +466,7 @@ const currentDay = now.getDate();
 
     // Current month days
     for (let day = 1; day <= daysInMonth; day++) {
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === displayMonth && event.year === displayYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === displayMonth && event.year === displayYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
       const isToday = day === currentDay && displayMonth === currentMonth && displayYear === currentYear;
 
       calendarDays.push({
@@ -482,7 +482,7 @@ const currentDay = now.getDate();
     for (let day = 1; calendarDays.length < totalCells; day++) {
       const nextMonthNum = displayMonth === 12 ? 1 : displayMonth + 1;
       const nextYear = displayMonth === 12 ? displayYear + 1 : displayYear;
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === nextMonthNum && event.year === nextYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === nextMonthNum && event.year === nextYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
