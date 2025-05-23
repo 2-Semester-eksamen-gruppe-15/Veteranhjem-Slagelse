@@ -4,7 +4,8 @@ import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
 import Citat from '../components/Citater.astro';
-
+import Kontakt_section from '../components/Kontakt_section.astro'
+import Button from "../components/Button.astro";
 ---
   
   <Layout title="Kontakt os">
@@ -32,8 +33,8 @@ import Citat from '../components/Citater.astro';
       Så hvis du sidder og overvejer det: Kom bare forbi eller kontakt os.</p>
   </Introduktion_section>
   
-
-
+<Kontakt_section/>
+<Button />
   <Citat
   image="../imgs/citat_kontakt.webp"
   quote="Jeg tøvede længe, før jeg kom første gang. Men lige så snart jeg trådte ind ad døren, blev jeg mødt med varme nu føles det som mit andet hjem."

@@ -1,0 +1,139 @@
+<section class="kontakt_section">
+    <div class="kontakt_wrapper">
+      <div class="kontakt_form">
+        <h2>Kontakt os</h2>
+  
+        <label for="name">Navn</label>
+        <input type="text" id="name" name="name" />
+  
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" />
+  
+        <label for="message">Besked</label>
+        <textarea id="message" name="message" placeholder="Skriv din besked her..."></textarea>
+      </div>
+  
+      <div class="kontakt_info">
+        <div class="info_item">
+          <img src="/mail.webp" alt="Mail icon" />
+          <div>
+            <strong>E-mail</strong><br />
+            martin.vhs@veteranhjem.dk
+          </div>
+        </div>
+  
+        <div class="info_item">
+          <img src="/map.webp" alt="Adresse icon" />
+          <div>
+            <strong>Adresse</strong><br />
+            Sdr. Stationsvej 26<br />
+            4200 Slagelse
+          </div>
+        </div>
+  
+        <div class="info_item">
+          <img src="/phone.webp" alt="Telefon icon" />
+          <div>
+            <strong>Telefon</strong><br />
+            40 49 90 82
+          </div>
+        </div>
+  
+        <div class="info_item">
+          <img src="/time.webp" alt="Åbningstider icon" />
+          <div>
+            <strong>Åbningstider</strong><br />
+            Mandag, tirsdag, torsdag og fredag:<br />
+            kl. 10:00–16:00<br />
+            Onsdag: kl. 10:00–20:00
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <style>
+  .kontakt_section {
+    background-color: var(--gylden20);
+    background-image: url("../watermark/VANDMÆRKE-H.png");
+    background-repeat: no-repeat;
+    background-position: 110% 50%;
+    background-size: 40%;
+    padding: 4rem 0;
+  }
+  
+  .kontakt_wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+ 
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 1rem;
+  }
+  
+  .kontakt_form h2 {
+    font: var(--header2);
+    color: var(--rolig);
+    margin-bottom: 1rem;
+  }
+  
+  .kontakt_form label {
+    display: block;
+    margin-top: 1rem;
+    font-weight: bold;
+  }
+  
+  .kontakt_form input,
+  .kontakt_form textarea {
+    width: 90%;
+ 
+    padding: 0.75rem;
+    border: 1px solid #444;
+    border-radius: 2px;
+    margin-top: 0.25rem;
+  }
+  
+  .kontakt_form textarea {
+    height: 150px;
+    resize: vertical;
+  }
+  
+  .kontakt_info {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    padding-top: 3rem;
+  }
+  
+  .info_item {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+  
+  .info_item img {
+    width: 24px;
+    height: 24px;
+    margin-top: 4px;
+  }
+  
+
+  @media (max-width: 900px) {
+    .kontakt_wrapper {
+      grid-template-columns: 1fr;
+   
+    }
+  
+    .kontakt_form input,
+    .kontakt_form textarea {
+      width: 100%;
+    }
+  
+    .kontakt_info {
+     
+      padding-top: 3rem;
+    }
+  }
+  </style>
+  
