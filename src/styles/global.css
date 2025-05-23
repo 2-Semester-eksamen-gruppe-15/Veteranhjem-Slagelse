@@ -12,7 +12,7 @@ body {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%;
+    height: auto;
 }
 
 /* Set default font */
@@ -114,9 +114,10 @@ p {
         font: var(--bodyMobil);
     }
 }
+
 mark {
     color: var(--gylden);
-   font: var(--header4);
+    font: var(--header4);
     margin-bottom: 1rem;
     background-color: transparent;
-  }
+}
