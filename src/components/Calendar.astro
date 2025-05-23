@@ -425,6 +425,12 @@ const currentDay = now.getDate();
     setupEventHandlers();
   });
 
+  function timeToMinutes(timeStr) {
+    if (!timeStr) return 0;
+    const [hours, minutes] = timeStr.split(":").map(Number);
+    return hours * 60 + minutes;
+  }
+
   function renderCalendar() {
     const monthTitle = document.getElementById("current-month");
     monthTitle.textContent = `${monthNames[displayMonth - 1]}, ${displayYear}`;
@@ -448,7 +454,7 @@ const currentDay = now.getDate();
       const day = daysInPrevMonth - i;
       const prevMonthNum = displayMonth === 1 ? 12 : displayMonth - 1;
       const prevYear = displayMonth === 1 ? displayYear - 1 : displayYear;
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === prevMonthNum && event.year === prevYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === prevMonthNum && event.year === prevYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
@@ -460,7 +466,7 @@ const currentDay = now.getDate();
 
     // Current month days
     for (let day = 1; day <= daysInMonth; day++) {
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === displayMonth && event.year === displayYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === displayMonth && event.year === displayYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
       const isToday = day === currentDay && displayMonth === currentMonth && displayYear === currentYear;
 
       calendarDays.push({
@@ -476,7 +482,7 @@ const currentDay = now.getDate();
     for (let day = 1; calendarDays.length < totalCells; day++) {
       const nextMonthNum = displayMonth === 12 ? 1 : displayMonth + 1;
       const nextYear = displayMonth === 12 ? displayYear + 1 : displayYear;
-      const dayEvents = allEvents.filter((event) => event.day === day && event.month === nextMonthNum && event.year === nextYear);
+      const dayEvents = allEvents.filter((event) => event.day === day && event.month === nextMonthNum && event.year === nextYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
