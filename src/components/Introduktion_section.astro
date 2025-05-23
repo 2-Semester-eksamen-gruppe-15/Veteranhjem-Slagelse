@@ -16,7 +16,7 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
 
 <style>
   h2 {
-    color: var(--skov);
+    color: var(--rolig);
     font: var(--header1);
     text-align: center;
   }
@@ -57,6 +57,16 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
     h2, .subtitle {
       text-align: center;
       padding: 10px;
+    }
+
+    h2 {
+      font: var(--header1Mobil);
+    }
+    .subtitle{
+      font: var(--subtitleMobil);
+    }
+    p{
+      font: var(--bodyMobil);
     }
   }
 </style>

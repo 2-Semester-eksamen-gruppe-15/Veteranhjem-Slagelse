@@ -11,9 +11,12 @@ import Button from './Button.astro';
     </h1>
      <Button text="se aktiviteter" link="/aktiviteter" textColor="white" buttonColor="var(--skov)" size="big" position="absolute" top="50%"/>
   
-     <div class="hero_icon"><a href="#"></a>
-      <img src="/icon.png" alt="icon" />
+     <div class="hero_icon">
+      <a href="#carouselTrack">
+        <img src="/icon.png" alt="icon" />
+      </a>
     </div>
+   
 
   </div>
 
@@ -63,6 +66,9 @@ h1{
   .hero{
     background-image: url('/imgs/hero_mobil.webp');
    text-align: left;
+  }
+  h1{
+    font: var(--header1Mobil);
   }
 
   .hero_content{
