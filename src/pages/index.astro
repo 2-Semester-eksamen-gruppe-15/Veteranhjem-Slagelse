@@ -3,12 +3,16 @@ import Layout from "../layouts/Layout.astro";
 import Menu from "../components/Menu.astro";
 import Footer from "../components/Footer.astro";
 import Hero_section from "../components/Hero_section.astro";
+import Button from "../components/Button.astro";
+import Citat from '../components/Citater.astro';
 import Introduktion_section from "../components/Introduktion_section.astro";
 ---
 
 <Layout title="Veteranhjem Slagelse">
   <Menu />
   <Hero_section />
+  <Button text="se aktiviteter" link="/aktiviteter" textColor="white" buttonColor="var(--skov)" size="big" />
+
   <Introduktion_section
   title="Bliv frivillig"
   subtitle="Gør en forskel, bliv frivillig hos os"
@@ -21,6 +25,11 @@ import Introduktion_section from "../components/Introduktion_section.astro";
      Som frivillig på Veteranhjem Sjælland bliver du en del af et fællesskab, hvor nærvær, tryghed og menneskelige relationer er i centrum. Her er plads til dig og til det, du har lyst til at bidrage med.
 Det handler ikke om at kunne det hele det handler om at være der.</p>
 </Introduktion_section>
-
+<Citat
+  image="../imgs/citat_forside.webp"
+  quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god."
+  name="Dorte, 72 år"
+  title="forælder til veteran"
+/>
   <Footer />
 </Layout>

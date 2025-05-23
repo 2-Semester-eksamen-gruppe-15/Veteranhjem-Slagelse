@@ -1,0 +1,84 @@
+---
+/* Props passed into the component */
+const { image, quote, name, title } = Astro.props;
+---
+
+<!-- Outer container for the quote card -->
+<div class="quote-card">
+  <!-- Background image -->
+  <img class="background" src={image} alt="Quote background" />
+
+  <!-- Dark overlay with the quote text and author info -->
+  <div class="overlay">
+    <blockquote>"{quote}"</blockquote>
+    <p class="author">{name}, {title}</p>
+  </div>
+</div>
+
+<style>
+  /* Container that wraps everything */
+  .quote-card {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9; /* Keeps a consistent width-to-height ratio */
+    overflow: hidden;
+    border: 32px solid var(--rolig50); /* Green border */
+    background-color: var(--rolig50); /* emergency background in case image doesn't load */
+  }
+
+  /* Background image styling */
+  .background {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Makes sure image fills container */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0; /* Positioned behind overlay */
+  }
+
+  /* Overlay with dark tint and centered text */
+  .overlay {
+    position: absolute;
+    inset: 0; /* Fills the entire container */
+    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+    z-index: 1; /* Positioned above the background */
+  }
+
+  /* Main quote text */
+  blockquote {
+    font: var(--header3); 
+    margin: 0 0 0.5rem 0;
+  }
+
+  /* Author name and title */
+  .author {
+    font: var(--body); 
+  }
+
+  /* Mobile version */
+  @media screen and (max-width: 900px) {
+    .overlay {
+      padding: 1rem; /* Reduce padding on smaller screens */
+    }
+
+    blockquote {
+      font: var(--header3Mobil);
+    }
+
+    .author {
+      font: var(--bodyMobil); 
+    }
+
+    .quote-card {
+      border-width: 6px; 
+    }
+  }
+</style>
