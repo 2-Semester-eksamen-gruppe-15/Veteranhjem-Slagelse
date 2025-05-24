@@ -5,12 +5,11 @@ import Footer from "../components/Footer.astro";
 import Hero_section from "../components/Hero_section.astro";
 
 import Carousel from "../components/Carousel.astro";
-
+import Galleri from "../components/Galleri.astro";
 
 import Button from "../components/Button.astro";
-import Citat from '../components/Citater.astro';
+import Citat from "../components/Citater.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
-
 ---
 
 <Layout title="Veteranhjem Slagelse">
@@ -18,15 +17,10 @@ import Introduktion_section from "../components/Introduktion_section.astro";
 
   <Hero_section />
 
-<Carousel/>
+  <Carousel />
+  <Galleri />
 
-  
-<Citat
-  image="../imgs/citat_forside.webp"
-  quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god."
-  name="Dorte, 72 år"
-  title="forælder til veteran"
-/>
+  <Citat image="../imgs/citat_forside.webp" quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god." name="Dorte, 72 år" title="forælder til veteran" />
 
   <Footer />
 </Layout>
