@@ -1,87 +1,98 @@
 ---
-import Button from './Button.astro';
+import Button from "./Button.astro";
 ---
 
 <section class="hero">
   <div class="hero_overlay"></div>
   <div class="hero_content">
     <h1>
-      Veteranhjem Slagelse <br/>
+      Veteranhjem Slagelse <br />
       <span>- for alle veteraner og deres pårørende</span>
     </h1>
-     <Button text="se aktiviteter" link="/aktiviteter" textColor="white" buttonColor="var(--skov)" size="big" position="absolute" top="50%"/>
-  
-     <div class="hero_icon">
+    <Button text="se aktiviteter" link="/aktiviteter" textColor="white" buttonColor="var(--skov)" size="big" position="absolute" top="50%" />
+
+    <div class="hero_icon">
       <a href="#carouselTrack">
         <img src="/icon.png" alt="icon" />
       </a>
     </div>
-   
-
   </div>
-
 </section>
 
 <style>
-
-.hero {
-  position: relative;         
-  background-image: url('../imgs/hero.webp');
-  background-size: cover;
-  background-position: center;
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: white;
-}
-
-.hero_overlay {
-  position: absolute;       
-  inset: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-  z-index: 1;
-}
-
-.hero_content {
-  position: relative;
-  z-index: 2;
-  padding:420px;
-}
-.hero_icon {
-  margin-top: 10rem;
-  display: flex;
-  justify-content: center;
-}
-
-.hero_icon img {
-  width: 50px; 
-  height: auto;
-}
-h1{
-  margin-bottom: 4rem;
-}
-@media screen and (max-width: 800px){
-  .hero{
-    background-image: url('/imgs/hero_mobil.webp');
-   text-align: left;
-  }
-  h1{
-    font: var(--header1Mobil);
+  .hero {
+    position: relative;
+    background-image: url("../imgs/hero.webp");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
   }
 
-  .hero_content{
-padding:20px;
-margin-right: 60px;
-margin-bottom: 12rem;
+  .hero_overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+
+  .hero_content {
+    position: relative;
+    z-index: 2;
+    padding: 420px;
   }
   .hero_icon {
-    position: absolute;
-    bottom: -18rem; 
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-}}
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+  }
 
+  @keyframes bounce {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .hero_icon a {
+    animation: bounce 3s infinite;
+    animation-timing-function: ease-in-out;
+  }
+
+  .hero_icon img {
+    width: 50px;
+    height: auto;
+  }
+  h1 {
+    margin-bottom: 4rem;
+  }
+  @media screen and (max-width: 800px) {
+    .hero {
+      background-image: url("/imgs/hero_mobil.webp");
+      text-align: left;
+    }
+    h1 {
+      font: var(--header1Mobil);
+    }
+
+    .hero_content {
+      padding: 20px;
+      margin-right: 60px;
+      margin-bottom: 12rem;
+    }
+    .hero_icon {
+      position: absolute;
+      bottom: -10rem;
+      left: 57%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+  }
 </style>
