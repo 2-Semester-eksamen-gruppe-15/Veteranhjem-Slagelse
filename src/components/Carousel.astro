@@ -2,8 +2,7 @@
   <div>
     <h2>Et hyggeligt værested for dig og dine nærmeste</h2>
     <p>Hos Veteranhjem Slagelse møder du et trygt og imødekommende fællesskab, hvor der er plads til både ro og nærvær. Her kan du som veteran eller pårørende tage en pause fra hverdagen, deltage i fællesspisning, arrangementer og samtaler – eller bare være til.</p>
-    <p>Vi er her for at lytte, støtte og skabe gode rammer for både store og små behov.
-Uanset om du kommer for første gang eller allerede er en del af fællesskabet, er du altid velkommen hos os.</p>
+    <p>Vi er her for at lytte, støtte og skabe gode rammer for både store og små behov. Uanset om du kommer for første gang eller allerede er en del af fællesskabet, er du altid velkommen hos os.</p>
   </div>
 
   <div class="carousel" id="carouselTrack">
@@ -18,77 +17,101 @@ Uanset om du kommer for første gang eller allerede er en del af fællesskabet, 
 </section>
 
 <style>
-.grid1_2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  width: 1200px;
-  margin: 3rem auto 3rem auto;
-}
-
-h2 {
-  font: var(--header2);
-  color: var(--rolig);
-}
-
-.carousel {
-  width: 100%;
-  max-width: 650px;
-  height: 400px;
-  overflow: hidden;
-  margin: auto;
-  border-radius: 10px;
-}
-
-.carousel_track {
-  display: flex;
-  height: 100%;
-  animation: slide 15s infinite;
-}
-
-.carousel_track img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  flex-shrink: 0;
-
-}
-
-@keyframes slide {
-  0%    { transform: translateX(0%); }
-  20%   { transform: translateX(0%); }
-  25%   { transform: translateX(-100%); }
-  40%   { transform: translateX(-100%); }
-  45%   { transform: translateX(-200%); }
-  60%   { transform: translateX(-200%); }
-  65%   { transform: translateX(-300%); }
-  80%   { transform: translateX(-300%); }
-  85%   { transform: translateX(-400%); }
-  100%  { transform: translateX(-400%); }
-}
-
-
-@media screen and (max-width: 800px)
- {
   .grid1_2 {
- grid-template-columns: 1fr;
- width: 90%;
-    padding: 1rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    gap: 40px;
+    margin: 3rem auto 3rem auto;
+  }
 
+  h2 {
+    font: var(--header2);
+    color: var(--rolig);
   }
 
   .carousel {
-    height: 350px;
-    margin-top: 2rem;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 650px;
+    height: 400px;
+    overflow: hidden;
+    margin: auto;
+    border-radius: 30px;
   }
-h2{
-  text-align: center;
-  font: var(--header2Mobil);
-}
-p{
-  font: var(--bodyMobil)
-  }
-}
 
+  #carouselTrack {
+    scroll-margin-top: 130px;
+  }
+
+  .carousel_track {
+    display: flex;
+    height: 100%;
+    animation: slide 15s infinite;
+  }
+
+  .carousel_track img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  @keyframes slide {
+    0% {
+      transform: translateX(0%);
+    }
+    20% {
+      transform: translateX(0%);
+    }
+    25% {
+      transform: translateX(-100%);
+    }
+    40% {
+      transform: translateX(-100%);
+    }
+    45% {
+      transform: translateX(-200%);
+    }
+    60% {
+      transform: translateX(-200%);
+    }
+    65% {
+      transform: translateX(-300%);
+    }
+    80% {
+      transform: translateX(-300%);
+    }
+    85% {
+      transform: translateX(-400%);
+    }
+    100% {
+      transform: translateX(-400%);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .grid1_2 {
+      grid-template-columns: 1fr;
+      width: 90%;
+      padding: 1rem;
+      gap: 20px;
+    }
+
+    .carousel {
+      height: 350px;
+      margin-top: 2rem;
+      margin: 0 auto;
+    }
+
+    #carouselTrack {
+      scroll-margin-top: 350px;
+    }
+    h2 {
+      text-align: center;
+      font: var(--header2Mobil);
+    }
+    p {
+      font: var(--bodyMobil);
+    }
+  }
 </style>
-
