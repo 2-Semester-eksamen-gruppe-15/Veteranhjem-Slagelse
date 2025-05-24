@@ -5,30 +5,18 @@ import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
 import Yellow_section from "../components/Yellow_section.astro";
 import Button from "../components/Button.astro";
-import Citat from '../components/Citater.astro';
+import Citat from "../components/Citater.astro";
+import EDNFD from "../components/EDNFD.astro";
 ---
 
 <Layout title="Støt">
   <Menu />
-  <Introduktion_section
-  title="Støt vores fællesskab"
-  subtitle="Her er nogle måder, du kan være med til at gøre en forskel"
-  imgSrc="/imgs/stoet.webp"
-  imgAlt="Veteraner sidder og snakker"
-
->
-
-<p><mark>Veteranhjem Sjælland er meget mere end et hus.</mark></p>
-  <p>
-    Det er et frirum for veteraner og deres pårørende et sted med fællesskab, nærvær og støtte i hverdagen. Men det kræver hænder, hjerter og opbakning at holde huset i gang. Her kan du læse, hvordan du kan være med og gøre en forskel.
-  </p>
-  <p>
-    Det vigtigste er din tilstedeværelse og dit ønske om at gøre en forskel.
-  </p>
-  <p>
-    Før du starter, vil du blive inviteret til en samtale med den daglige leder, så vi sammen finder ud af, hvordan du bedst passer ind.
-  </p>
-</Introduktion_section>
+  <Introduktion_section title="Støt vores fællesskab" subtitle="Her er nogle måder, du kan være med til at gøre en forskel" imgSrc="/imgs/stoet.webp" imgAlt="Veteraner sidder og snakker">
+    <p><mark>Veteranhjem Sjælland er meget mere end et hus.</mark></p>
+    <p>Det er et frirum for veteraner og deres pårørende et sted med fællesskab, nærvær og støtte i hverdagen. Men det kræver hænder, hjerter og opbakning at holde huset i gang. Her kan du læse, hvordan du kan være med og gøre en forskel.</p>
+    <p>Det vigtigste er din tilstedeværelse og dit ønske om at gøre en forskel.</p>
+    <p>Før du starter, vil du blive inviteret til en samtale med den daglige leder, så vi sammen finder ud af, hvordan du bedst passer ind.</p>
+  </Introduktion_section>
 
   <Yellow_section title="Hvordan kan du støtte?" img="/imgs/testimg2.webp" imgAlt="Mand">
     <h4 style="color: var(--gylden);">Giv et bidrag</h4>
@@ -41,11 +29,7 @@ import Citat from '../components/Citater.astro';
     <p style="margin-bottom: 40px;">Vi har brug for frivillige til mange forskellige opgaver både praktiske, sociale og støttende.</p>
     <Button text="bliv frivillig" link="/frivillig" textColor="white" buttonColor="var(--skov)" />
   </Yellow_section>
-   <Citat
-  image="../imgs/citat_stoet.webp"
-  quote="Organisationer som denne gør en forskel, som ikke kan måles i tal - men i tryghed, fællesskab og menneskelige møder. De fortjener al den støtte, de kan få."
-  name="Katrine, 38 år"
-  title="pårørende"
-/>
+  <EDNFD />
+  <Citat image="../imgs/citat_stoet.webp" quote="Organisationer som denne gør en forskel, som ikke kan måles i tal - men i tryghed, fællesskab og menneskelige møder. De fortjener al den støtte, de kan få." name="Katrine, 38 år" title="pårørende" />
   <Footer />
 </Layout>

@@ -1,0 +1,75 @@
+---
+import Button from "../components/Button.astro";
+---
+
+<section class="dved_section">
+  <div>
+    <h2>Det vigtigste er dig</h2>
+    <p>Vi søger frivillige, som er modne, rolige og har lyst til at være noget for andre. Du behøver ikke være tidligere soldat eller have særlige erfaringer bare du har hjertet med og kan møde mennesker i øjenhøjde.</p>
+  </div>
+  <div>
+    <h4><mark>Fonden Danske Veteranhjem er sat i verden for at skabe fristeder for veteraner og deres familier.</mark></h4>
+    <p>Som frivillig på vores veteranhjem er du med til at anerkende den indsats, veteranerne har ydet for Danmark, og sammen med vores andre frivillige skaber du positive forandringer for veteraner, der har brug for hjælp og støtte.</p>
+    <p>På veteranhjemmene har vi mange forskellige aktiviteter og opgaver. Det kan være alt fra bestyrelsesarbejde i en lokalforening, fællesspisning, malerkurser til løbehold. Og har du en idé til en helt ny aktivitet, som du gerne vil stå for, hører vi også meget gerne fra dig.</p>
+    <p>Vil du vide mere om at være frivillig på et veteranhjem, så er du altid velkommen til at kontakte lederen af veteranhjemmet.</p>
+    <Button text="Kontakt os" link="/kontakt" textColor="black" buttonColor="var(--gylden)" />
+  </div>
+</section>
+
+<style>
+  .dved_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 40px 20px;
+    color: var(--rolig);
+    gap: 40px;
+  }
+
+  .dved_section div {
+    max-width: 500px;
+  }
+
+  .dved_section h2 {
+    margin-bottom: 20px;
+    font: var(--header2);
+  }
+
+  .dved_section p {
+    font: var(--body);
+    color: black;
+  }
+
+  .dved_section p:last-of-type {
+    margin-bottom: 1.5rem;
+  }
+
+  .dved_section h4 {
+    font: var(--header4);
+    margin-top: 2rem;
+    margin-bottom: -0.5rem;
+  }
+
+  @media screen and (max-width: 900px) {
+    .dved_section {
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+    }
+
+    .dved_section h2 {
+      font: var(--header2Mobil);
+      margin-bottom: 10px;
+    }
+
+    .dved_section p {
+      font: var(--bodyMobil);
+    }
+
+    .dved_section h4,
+    mark {
+      font: var(--header4Mobil);
+      margin-top: 1rem;
+    }
+  }
+</style>
