@@ -21,15 +21,22 @@ import Button from "../components/Button.astro";
 
     <div class="kontakt_info">
       <div class="info_item">
-        <img src="/mail.webp" alt="Mail icon" />
+        <a href="mailto:martin.vhs@veteranhjem.dk">
+          <img src="/mail.webp" alt="Mail icon" />
+        </a>
         <div>
           <strong>E-mail</strong><br />
           martin.vhs@veteranhjem.dk
         </div>
       </div>
-
       <div class="info_item">
-        <img src="/map.webp" alt="Adresse icon" />
+        <a
+          href="https://www.google.com/maps/place/Sdr.+Stationsvej+26,+4200+Slagelse"
+          target="_blank"
+          rel="noopener"
+        >
+          <img src="/map.webp" alt="Adresse icon" />
+        </a>
         <div>
           <strong>Adresse</strong><br />
           Sdr. Stationsvej 26<br />
@@ -38,7 +45,9 @@ import Button from "../components/Button.astro";
       </div>
 
       <div class="info_item">
-        <img src="/phone.webp" alt="Telefon icon" />
+        <a href="tel:+4540499082">
+          <img src="/phone.webp" alt="Telefon icon" />
+        </a>
         <div>
           <strong>Telefon</strong><br />
           40 49 90 82
