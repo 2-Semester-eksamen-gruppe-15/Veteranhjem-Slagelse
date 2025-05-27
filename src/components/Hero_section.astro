@@ -43,7 +43,7 @@ import Button from "./Button.astro";
   .hero_content {
     position: relative;
     z-index: 2;
-    padding: 420px;
+    max-width: 60%;
   }
   .hero_icon {
     margin-top: 5rem;
@@ -74,7 +74,6 @@ import Button from "./Button.astro";
     margin-bottom: 4rem;
   }
 
- 
   @media screen and (max-width: 800px) {
     .hero {
       background-image: url("/imgs/hero_mobil.webp");
@@ -88,6 +87,7 @@ import Button from "./Button.astro";
       padding: 20px;
       margin-right: 60px;
       margin-bottom: 12rem;
+      max-width: 100%;
     }
     .hero_icon {
       position: absolute;
