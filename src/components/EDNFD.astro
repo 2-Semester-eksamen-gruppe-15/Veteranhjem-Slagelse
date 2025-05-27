@@ -1,0 +1,104 @@
+---
+import Button from "../components/Button.astro";
+---
+
+<section class="ednfd_section">
+  <div class="ednfd_wrapper">
+    <h2>Er det noget for dig?</h2>
+    <Button text="Kontakt os" link="/kontakt" textColor="black" buttonColor="var(--gylden)" />
+    <h4><mark>Andre måder at støtte på</mark></h4>
+    <ul>
+      <li>Del vores opslag på sociale medier</li>
+      <li>Hjælp med materialer eller udstyr til aktiviteter</li>
+      <li>Fortæl en ven, at vi findes</li>
+    </ul>
+    <h4>Tak fordi du støtter</h4>
+    <p>Uanset hvordan du vælger at hjælpe, er vi taknemmelige.</p>
+    <p>Sammen gør vi veteranhjemmet til et trygt og varmt sted for dem, der har givet så meget.</p>
+  </div>
+  <div class="ednfd_image">
+    <img src="/imgs/EDNFDimg.webp" alt="Er det noget for dig?" />
+  </div>
+</section>
+
+<style>
+  .ednfd_section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    color: var(--rolig);
+    gap: 40px;
+  }
+
+  .ednfd_wrapper {
+    max-width: 500px;
+  }
+
+  .ednfd_wrapper h2 {
+    margin-bottom: 20px;
+    font: var(--header2);
+  }
+
+  .ednfd_wrapper p {
+    font: var(--body);
+    color: black;
+  }
+
+  .ednfd_wrapper p:first-of-type {
+    margin-bottom: -5px;
+  }
+
+  .ednfd_wrapper h4 {
+    margin-top: 2rem;
+    margin-bottom: -0.5rem;
+  }
+
+  .ednfd_wrapper ul {
+    padding: 0 15px;
+  }
+
+  .ednfd_wrapper li {
+    margin-bottom: 10px;
+    color: black;
+    font: var(--body);
+  }
+
+  mark {
+    margin-bottom: 0;
+  }
+
+  .ednfd_image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 30px;
+  }
+
+  @media screen and (max-width: 900px) {
+    .ednfd_section {
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .ednfd_wrapper {
+      max-width: 100%;
+    }
+
+    .ednfd_wrapper p,
+    .ednfd_wrapper li {
+      font: var(--bodyMobil);
+    }
+    .ednfd_wrapper h2 {
+      font: var(--header2Mobil);
+    }
+
+    .ednfd_wrapper h4 {
+      font: var(--header4Mobil);
+    }
+    mark {
+      font: var(--header4Mobil);
+    }
+  }
+</style>

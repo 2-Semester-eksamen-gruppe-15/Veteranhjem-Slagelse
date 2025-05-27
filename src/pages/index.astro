@@ -9,29 +9,23 @@ import Footer from '../components/Footer.astro';
 import OpeningHours from '../components/Opening_hours.astro';
 import Address from '../components/Adress.astro';
 import SocialMedia from '../components/SocialMedia.astro';
+import Carousel from "../components/Carousel.astro";
+import Galleri from "../components/Galleri.astro";
+import Citat from "../components/Citater.astro";
+import FAQ from "../components/FAQ.astro"
 ---
 
 <Layout title="Veteranhjem Slagelse">
   <Menu />
+
   <Hero_section />
-  <Introduktion_section
-  title="Bliv frivillig"
-  subtitle="Gør en forskel, bliv frivillig hos os"
-  imgSrc="/imgs/stoet.webp"
-  imgAlt="Veteraner sidder og snakker"
->
-<p><mark> Vil du bruge lidt af din tid på noget, der virkelig betyder noget?</mark>
-</p>
-  <p>
-     Som frivillig på Veteranhjem Sjælland bliver du en del af et fællesskab, hvor nærvær, tryghed og menneskelige relationer er i centrum. Her er plads til dig og til det, du har lyst til at bidrage med.
-Det handler ikke om at kunne det hele det handler om at være der.</p>
-</Introduktion_section>
-<Citat
-  image="../imgs/citat_forside.webp"
-  quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god."
-  name="Dorte, 72 år"
-  title="forælder til veteran"
-/>
+
+  <Carousel />
+  <FAQ />
+  <Galleri />
+
+  <Citat image="../imgs/citat_forside.webp" quote="Jeg synes det er et hyggeligt sted at kunne komme og maden er jo god." name="Dorte, 72 år" title="forælder til veteran" />
+
   <Footer />
 
   

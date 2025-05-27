@@ -41,7 +41,7 @@ const { image, quote, name, title } = Astro.props;
   .overlay {
     position: absolute;
     inset: 0; /* Fills the entire container */
-    background: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black overlay */
     color: white;
     display: flex;
     flex-direction: column;
@@ -54,13 +54,15 @@ const { image, quote, name, title } = Astro.props;
 
   /* Main quote text */
   blockquote {
-    font: var(--header3); 
-    margin: 0 0 0.5rem 0;
+    font: var(--header2);
+    margin: 0 0 1.5rem 0;
+    width: 60%;
   }
 
   /* Author name and title */
   .author {
-    font: var(--body); 
+    font: var(--header3);
+    font-weight: normal;
   }
 
   /* Mobile version */
@@ -70,15 +72,18 @@ const { image, quote, name, title } = Astro.props;
     }
 
     blockquote {
-      font: var(--header3Mobil);
+      font: var(--header2Mobil);
+      width: 90%;
     }
 
     .author {
-      font: var(--bodyMobil); 
+      font: var(--header4Mobil);
+      font-weight: normal;
+      margin: 0;
     }
 
     .quote-card {
-      border-width: 6px; 
+      border-width: 6px;
     }
   }
 </style>

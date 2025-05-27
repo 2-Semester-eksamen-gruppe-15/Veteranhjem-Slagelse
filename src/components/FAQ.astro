@@ -1,0 +1,173 @@
+---
+
+---
+
+<h2>Ofte stillede spørgsmål</h2>
+<p class="faq_intro">Her finder du svar på de mest almindelige spørgsmål</p>
+<section class="faq_section">
+  <div class="faq_list">
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Skal jeg tilmelde mig på forhånd?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Til daglig hygge og samvær skal du ikke tilmelde dig. Men til særlige arrangementer som fællesspisning eller foredrag kan det være en god idé at tilmelde sig det skriver vi altid i vores opslag.</p>
+      </div>
+    </div>
+
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Koster det noget at komme?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Nej, det er gratis at komme og benytte sig af veteranhjemmet og dets aktiviteter med få undtagelser (ved fællesspisning koster maden 20kr).</p>
+      </div>
+    </div>
+
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Hvad laver man på veteranhjemmet?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Veteranhjemmet er et trygt sted hvor veteraner og pårørende kan komme og få en kop kaffe og snakke med andre ligesindede. Udover dette har vi forskellige aktiviteter og tilbud såsom pårørende café, fællesspisning, foredrag, brætspilshygge og meget mere.</p>
+      </div>
+    </div>
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Hvornår har vi åbent?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Mandag, tirsdag, torsdag og fredag: kl. 10:00–16:00 Onsdag: kl. 10:00–20:00</p>
+      </div>
+    </div>
+
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Er der også noget for børn og familier?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Ja! Vi byder hele familien velkommen og har aktiviteter, hvor børn også kan være med – især ved fællesarrangementer.</p>
+      </div>
+    </div>
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Kan jeg blive frivillig?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Meget gerne! Vi har altid brug for frivillige hænder – både til arrangementer og den daglige drift. Kontakt os, hvis du vil høre mere.</p>
+      </div>
+    </div>
+    <div class="faq_item">
+      <button class="faq_toggle" onclick="this.parentElement.classList.toggle('open')">
+        Hvordan finder jeg ud af, hvad der sker?
+        <svg class="arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8l6 6H6z"></path></svg>
+      </button>
+      <div class="faq_content">
+        <p>Følg os på Facebook, eller kig på vores kalender for at få opdateringer om arrangementer og åbningstider.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .faq_section {
+    background-color: var(--gylden20);
+    background-image: url("../watermark/VANDMÆRKE-H.png");
+    background-repeat: no-repeat;
+    background-position: 100% 80%;
+    background-size: 35%;
+    padding: 4rem 1rem;
+    max-width: 100%;
+  }
+
+  h2 {
+    font: var(--header2);
+    color: var(--rolig);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq_intro {
+    font: var(--subtitle);
+    text-align: center;
+    margin-bottom: 3rem;
+    max-width: 90%;
+    margin-inline: auto;
+  }
+
+  .faq_list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq_item {
+    border-bottom: 1px solid #444;
+    padding: 1rem 0;
+  }
+
+  .faq_toggle {
+    width: 100%;
+    background: none;
+    border: none;
+    font: var(--header4);
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    color: black;
+  }
+
+  .arrow {
+    width: 24px;
+    height: 24px;
+    fill: var(--gylden);
+    transition: transform 0.3s ease;
+    transform: rotate(180deg);
+  }
+
+  .faq_item.open .arrow {
+    transform: rotate(0deg);
+  }
+
+  .faq_content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .faq_item.open .faq_content {
+    max-height: 200px;
+  }
+
+  .faq_content p {
+    font: var(--body);
+    color: black;
+    margin: 1rem 0 0 0;
+  }
+  @media screen and (max-width: 900px) {
+    .faq_section {
+      background-position: -90% 50%;
+      background-size: 130%;
+    }
+
+    h2 {
+      font: var(--header2Mobil);
+    }
+    .faq_intro {
+      font: var(--subtitleMobil);
+    }
+    p {
+      font: var(--bodyMobil);
+    }
+    .faq_toggle {
+      font: var(--header4Mobil);
+    }
+  }
+</style>

@@ -1,7 +1,8 @@
 ---
 const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
 ---
-<h2>{title}</h2>
+
+<h1>{title}</h1>
 <p class="subtitle">{subtitle}</p>
 
 <section class="grid_section">
@@ -15,8 +16,8 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
 </section>
 
 <style>
-  h2 {
-    color: var(--skov);
+  h1 {
+    color: var(--rolig);
     font: var(--header1);
     text-align: center;
   }
@@ -25,6 +26,7 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
     font: var(--subtitle);
     text-align: center;
     margin-bottom: 2rem;
+    margin-top: -2rem;
   }
 
   .grid_section {
@@ -32,15 +34,13 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     padding: 40px 100px;
- margin: 0 auto;
+    margin: 0 auto;
     max-width: 1400px;
   }
 
   .grid_text p {
     margin-bottom: 1rem;
   }
-
-
 
   .grid_img img {
     width: 100%;
@@ -52,11 +52,24 @@ const { title, subtitle, imgSrc, imgAlt = "" } = Astro.props;
     .grid_section {
       grid-template-columns: 1fr;
       padding: 20px;
+      gap: 20px;
     }
 
-    h2, .subtitle {
+    h1,
+    .subtitle {
       text-align: center;
       padding: 10px;
+    }
+
+    h1 {
+      font: var(--header1Mobil);
+    }
+    .subtitle {
+      font: var(--subtitleMobil);
+      margin-bottom: 0;
+    }
+    p {
+      font: var(--bodyMobil);
     }
   }
 </style>
