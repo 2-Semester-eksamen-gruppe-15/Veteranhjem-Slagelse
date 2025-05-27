@@ -54,14 +54,15 @@ const { image, quote, name, title } = Astro.props;
 
   /* Main quote text */
   blockquote {
-    font: var(--header2); 
+    font: var(--header2);
     margin: 0 0 1.5rem 0;
     width: 60%;
   }
 
   /* Author name and title */
   .author {
-    font: var(--header3); 
+    font: var(--header3);
+    font-weight: normal;
   }
 
   /* Mobile version */
@@ -72,14 +73,16 @@ const { image, quote, name, title } = Astro.props;
 
     blockquote {
       font: var(--header2Mobil);
+      width: 90%;
     }
 
     .author {
-      font: var(--header3Mobil); 
+      font: var(--header4Mobil);
+      font-weight: normal;
     }
 
     .quote-card {
-      border-width: 6px; 
+      border-width: 6px;
     }
   }
 </style>
