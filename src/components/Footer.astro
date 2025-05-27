@@ -1,0 +1,169 @@
+---
+import SocialMedia from  "../components/SocialMedia.astro";
+import Address from  "../components/Adress.astro";
+import OpeningHours from  "../components/Opening_hours.astro";
+---
+
+<!-- Main Footer Wrapper -->
+<footer class="footer">
+  <!-- Container for columns -->
+  <div class="footer-columns">
+
+    <!-- Column 1: Slagelse Location Info -->
+    <div class="footer-section">
+      <h3>Veteranhjem Slagelse</h3>
+      <Address/>
+      <p>Telefon: <a href="tel:+4540499082">40 49 90 82</a></p>
+      <OpeningHours/>
+      <div class="leader">
+        <h4>Leder</h4>
+        <p>Martin Freitag<br />
+        E-mail: <a href="mailto:martin.vhs@veteranhjem.dk">martin.vhs@veteranhjem.dk</a></p>
+      </div>
+    </div>
+
+    <!-- Column 2: Other Veteran Homes -->
+    <div class="footer-section">
+      <h3>Andre Veteranhjem</h3>
+      <div class="andre-veteranhjem">
+        <p><strong>Midtjylland</strong><br />
+            Telefon: <a href="tel:+4520149901">20 14 99 01</a><br /> </p>
+        <p><strong>København</strong><br />Telefon: <a href="tel:+4551791387">51 79 13 87</a></p>
+        <p><strong>Odense</strong><br />Telefon: <a href="tel:+4551727332">51 72 73 32</a></p>
+        <p><strong>Aalborg</strong><br />Telefon: <a href="tel:+4528550122">28 55 01 22</a></p>
+        <p><strong>Trekantsområdet</strong><br />Telefon: <a href="tel:+4523270060">23 27 00 60</a></p>
+      </div>
+    </div>
+
+    <!-- Column 3: Socials & Info -->
+    <div class="footer-section">
+      <h3>Find os</h3>
+      <SocialMedia/>
+
+      <!-- Payment Icons -->
+      <div class="payment-icons">
+      <img src="../imgs/payment_icons.svg" alt="payment icons">
+      </div>
+
+      <!-- Handelsbetingelser -->
+      <a class="handels-link" href="https://www.veteranhjem.dk/handelsbetingelser/" target="_blank" rel="noopener">Handelsbetingelser</a>
+
+      <!-- Fonden Info -->
+      <div class="fonden">
+        <h4>Fonden</h4>
+        <p>
+         <a href="https://maps.app.goo.gl/DkHok8TsAev78UVB8" target="_blank">Sdr. Boulevard 15<br>5000 Odense C</a><br />
+          CVR-nr. 32939511<br />
+          Telefon: <a href="tel:+4551212324">51 21 23 24</a><br />
+          E-mail: <a href="mailto:fonden@veteranhjem.dk">fonden@veteranhjem.dk</a>
+        </p>
+        <img src="../imgs/gul_sløjfe.svg" alt="Støt vore soldater" />
+      </div>
+    </div>
+  </div>
+
+ 
+
+  <!-- Footer Bottom Bar -->
+  <div class="footer-bottom">
+    <p>© 2025 Danske Veteranhjem. All rights reserved.</p>
+    <nav>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookies Settings</a>
+    </nav>
+  </div>
+</footer>
+
+<style>
+.footer {
+  background-color: #94afa2;
+  color: #000;
+  padding: 2rem;
+  font-family: system-ui, sans-serif;
+}
+
+.footer-columns {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.footer-section h3, .footer-section h4 {
+  margin-bottom: 0.5rem;
+}
+
+.footer-section p {
+  margin: 0.25rem 0;
+}
+
+.payment-icons {
+  display: flex;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+
+.payment-icons img {
+  height: 1.5rem;
+}
+
+.handels-link {
+  display: inline-block;
+  margin-bottom: 1rem;
+  text-decoration: underline;
+  color: inherit;
+}
+
+.fonden img {
+  margin-top: 0.5rem;
+  max-height: 4rem;
+justify-self: end;
+margin-top: -4rem;
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  border-top: 1px solid #333;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.footer-bottom nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.footer-bottom a {
+  color: inherit;
+  text-decoration: underline;
+}
+a{
+    color: #000;
+}
+.andre-veteranhjem{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    
+  }
+}
+</style>
