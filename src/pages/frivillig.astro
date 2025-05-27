@@ -1,16 +1,12 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Menu from "../components/Menu.astro";
-import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
-import Button from "../components/Button.astro";
 import YellowSection from "../components/Yellow_section.astro";
 import Citat from "../components/Citater.astro";
 import DVED from "../components/DVED.astro";
 ---
 
 <Layout title="Bliv Frivillig">
-  <Menu />
   <Introduktion_section title="Bliv frivillig" subtitle="Gør en forskel, bliv frivillig hos os" imgSrc="/imgs/frivillig.webp" imgAlt="Veteraner sidder og snakker">
     <p><mark> Vil du bruge lidt af din tid på noget, der virkelig betyder noget?</mark></p>
     <p>Som frivillig på Veteranhjem Sjælland bliver du en del af et fællesskab, hvor nærvær, tryghed og menneskelige relationer er i centrum. Her er plads til dig og til det, du har lyst til at bidrage med. Det handler ikke om at kunne det hele det handler om at være der.</p>
@@ -28,5 +24,4 @@ import DVED from "../components/DVED.astro";
   </YellowSection>
   <DVED />
   <Citat image="../imgs/citat_frivillig.webp" quote="Det giver så meget mening at være frivillig her. Bare det at være til stede og gøre hverdagen lidt lettere for en anden – det føles vigtigt." name="Karen, 34 år" title="frivillig" />
-  <Footer />
 </Layout>

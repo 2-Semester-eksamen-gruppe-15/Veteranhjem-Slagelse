@@ -1,15 +1,11 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Menu from "../components/Menu.astro";
-import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
 import Citat from "../components/Citater.astro";
 import Kontakt_section from "../components/Kontakt_section.astro";
-import Button from "../components/Button.astro";
 ---
 
 <Layout title="Kontakt os">
-  <Menu />
   <Introduktion_section title="Kontakt os" subtitle="Her kan du finde information om, hvordan du kontakter os" imgSrc="/imgs/kontakt.webp" imgAlt="Veteraner sidder og snakker">
     <p><mark> Det kan være svært at tage det første skridt</mark></p>
     <p>Vi ved godt, at det kan føles som et stort skridt at komme på veteranhjemmet første gang. Måske har du tænkt på det længe. Måske har du overvejet, om det overhovedet er noget for dig. Det er helt normalt.</p>
@@ -24,5 +20,4 @@ import Button from "../components/Button.astro";
 
   <Kontakt_section />
   <Citat image="../imgs/citat_kontakt.webp" quote="Jeg tøvede længe, før jeg kom første gang. Men lige så snart jeg trådte ind ad døren, blev jeg mødt med varme nu føles det som mit andet hjem." name="Erik, 56 år" title="veteran" />
-  <Footer />
 </Layout>

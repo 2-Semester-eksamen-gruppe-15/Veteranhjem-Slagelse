@@ -1,7 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Menu from "../components/Menu.astro";
-import Footer from "../components/Footer.astro";
 import Introduktion_section from "../components/Introduktion_section.astro";
 import Yellow_section from "../components/Yellow_section.astro";
 import Button from "../components/Button.astro";
@@ -10,7 +8,6 @@ import EDNFD from "../components/EDNFD.astro";
 ---
 
 <Layout title="Støt">
-  <Menu />
   <Introduktion_section title="Støt vores fællesskab" subtitle="Her er nogle måder, du kan være med til at gøre en forskel" imgSrc="/imgs/stoet.webp" imgAlt="Veteraner sidder og snakker">
     <p><mark>Veteranhjem Sjælland er meget mere end et hus.</mark></p>
     <p>Det er et frirum for veteraner og deres pårørende et sted med fællesskab, nærvær og støtte i hverdagen. Men det kræver hænder, hjerter og opbakning at holde huset i gang. Her kan du læse, hvordan du kan være med og gøre en forskel.</p>
@@ -31,5 +28,4 @@ import EDNFD from "../components/EDNFD.astro";
   </Yellow_section>
   <EDNFD />
   <Citat image="../imgs/citat_stoet.webp" quote="Organisationer som denne gør en forskel, som ikke kan måles i tal - men i tryghed, fællesskab og menneskelige møder. De fortjener al den støtte, de kan få." name="Katrine, 38 år" title="pårørende" />
-  <Footer />
 </Layout>
