@@ -5,17 +5,15 @@ import Button from "./Button.astro";
 <div class="navigation">
   <div class="logo">
     <a href="/">
-      <img src="../logo/SLAGELSE-LOGO-G.png" alt="Logo" />
+      <img src="../logo/SLAGELSE-LOGO-G.svg" alt="Logo" />
     </a>
   </div>
   <nav>
     <ul class="menu">
       <li><a href="/aktiviteter">Aktiviteter & Tilbud</a></li>
       <li><a href="/kontakt">Kontakt</a></li>
-      <div class="buttons">
-        <Button text="støt" link="/stoet" textColor="black" buttonColor="var(--gylden)" />
-        <Button text="bliv frivillig" link="/frivillig" textColor="white" buttonColor="var(--skov)" />
-      </div>
+      <li class="button"><Button text="støt" link="/stoet" textColor="black" buttonColor="var(--gylden)" /></li>
+      <li class="button"><Button text="bliv frivillig" link="/frivillig" textColor="white" buttonColor="var(--skov)" /></li>
     </ul>
     <div class="burger">
       <div class="line"></div>
@@ -26,9 +24,9 @@ import Button from "./Button.astro";
 </div>
 
 <style>
-  .buttons {
+  .button {
     display: flex;
-    gap: 40px;
+    justify-content: center;
   }
   .navigation {
     position: sticky;
@@ -154,16 +152,7 @@ import Button from "./Button.astro";
       margin: 10px 20px;
     }
 
-    nav.active .menu li {
-      margin: 10px 20px;
-    }
-
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      margin-top: 20px;
+    nav .menu .button {
       margin-bottom: 20px;
     }
   }
