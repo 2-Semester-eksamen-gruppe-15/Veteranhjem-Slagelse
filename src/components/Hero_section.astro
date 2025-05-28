@@ -2,6 +2,11 @@
 import Button from "./Button.astro";
 ---
 
+<head>
+  <link rel="preload" as="image" href="../imgs/hero.webp" type="image/webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="../imgs/hero_mobil.webp" type="image/webp" fetchpriority="high" />
+</head>
+
 <section class="hero">
   <div class="hero_overlay"></div>
   <div class="hero_content">
