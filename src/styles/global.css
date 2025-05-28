@@ -116,9 +116,9 @@ p {
 }
 
 mark {
-    color: var(--gylden);
+    color: var(--rolig);
 
-   font: var(--header4);
+    font: var(--header4);
 
     font: var(--header4);
     margin-bottom: 1rem;
