@@ -42,7 +42,7 @@ html {
     --header2: bold 40px "Montserrat", sans-serif;
     --header3: bold 24px "Montserrat", sans-serif;
     --header4: bold 18px "Montserrat", sans-serif;
-    --subtitle: 24px "Merriweather", serif;
+    --subtitle: bold 24px "Montseratt", sans-serif;
     --body: 16px/1.4 "Montserrat", sans-serif;
     --small: 14px "Montserrat", sans-serif;
     --preTitle: bold 12px "Montserrat", sans-serif;
@@ -53,7 +53,7 @@ html {
     --header2Mobil: bold 20px "Montserrat", sans-serif;
     --header3Mobil: bold 18px "Montserrat", sans-serif;
     --header4Mobil: bold 16px/1.5 "Montserrat", sans-serif;
-    --subtitleMobil: 16px "Merriweather", serif;
+    --subtitleMobil: bold 16px "Montseratt", sans-serif;
     --bodyMobil: 14px/1.4 "Montserrat", sans-serif;
     --smallMobil: 11px "Montserrat", sans-serif;
     --buttonTextMobil: bold 12px "Montserrat", sans-serif;
