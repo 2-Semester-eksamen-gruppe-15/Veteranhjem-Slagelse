@@ -1,64 +1,99 @@
 ---
 // TypeScript interface defining the structure of event data from Supabase
+// This ensures type safety when working with event objects throughout the application
 interface Event {
-  id: number;
-  created_at: string;
-  title: string;
-  description: string;
-  day: number;
-  month: number;
-  year: number;
-  start_time: string;
-  end_time: string;
-  address: string;
-  subtitle: string;
-  image: string;
+  id: number; // Unique identifier for each event
+  created_at: string; // Timestamp when event was created in database
+  title: string; // Main event title displayed on calendar
+  description: string; // Detailed event description shown in modal
+  day: number; // Day of month (1-31)
+  month: number; // Month number (1-12)
+  year: number; // Full year (e.g., 2025)
+  start_time: string; // Event start time in HH:MM format
+  end_time: string; // Event end time in HH:MM format (optional)
+  address: string; // Event location/address
+  subtitle: string; // Secondary title/tagline for event
+  image: string; // URL to event image for modal display
 }
-// Fetch all events from Supabase database
+
+/**
+ * SUPABASE API CALL
+ * Fetch all events from the Supabase database using REST API
+ * The API key is a public anonymous key that allows read-only access
+ */
 const response = await fetch("https://gayliuppmzloxkcaafnu.supabase.co/rest/v1/Kalender", {
   headers: {
     apikey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImdheWxpdXBwbXpsb3hrY2FhZm51Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDc2NTE2NTksImV4cCI6MjA2MzIyNzY1OX0.O1OLLuFF0Q92x9ps9r4CnBhU-cn6RPmKdvsH8vQc_yA",
   },
 });
 
+// Parse the JSON response and cast it to our Event array type
 const allEvents: Event[] = await response.json();
 
-// Month and day names
+// Array of Danish month names (index 0 = January, index 11 = December)
 const monthNames = ["Januar", "Febuar", "Marts", "April", "Maj", "Juni", "Juli", "August", "September", "Oktober", "November", "December"];
+
+// Array of Danish abbreviated day names for calendar header (Monday to Sunday)
 const dayNames = ["MAN", "TIR", "ONS", "TOR", "FRE", "LØR", "SØN"];
 
-// Get current date
 const now = new Date();
-const currentMonth = now.getMonth() + 1;
-const currentYear = now.getFullYear();
-const currentDay = now.getDate();
+const currentMonth = now.getMonth() + 1; // getMonth() returns 0-11, we need 1-12
+const currentYear = now.getFullYear(); // Full year (e.g., 2025)
+const currentDay = now.getDate(); // Day of month (1-31)
 ---
 
 <div class="calendar-container">
+  <!-- CALENDAR HEADER: Contains title and navigation controls -->
   <header class="calendar-header">
     <h1 class="calendar-title">Kalender</h1>
+
+    <!-- Month navigation with previous/next buttons and current month display -->
     <div class="month-navigation">
       <button id="prev-month" class="nav-button">&#8249;</button>
+      <!-- Left arrow for previous month -->
       <h2 id="current-month" class="calendar-month"></h2>
+      <!-- Current month/year display -->
       <button id="next-month" class="nav-button">&#8250;</button>
+      <!-- Right arrow for next month -->
     </div>
   </header>
 
+  <!-- 
+    CALENDAR GRID: Main calendar display area
+    Uses CSS Grid to create a 7-column layout (one for each day of the week)
+    The grid will be populated dynamically with JavaScript
+  -->
   <div class="calendar-grid" id="calendar-grid">
+    <!-- Generate day headers (MON, TUE, WED, etc.) using map function -->
     {dayNames.map((day) => <div class="day-header">{day}</div>)}
   </div>
 
+  <!-- 
+    EVENT MODAL: Popup single view for displaying detailed event information
+    Initially hidden and shown when user clicks on an event
+  -->
   <div id="event-modal" class="modal-overlay hidden">
     <div class="modal-content">
+      <!-- Close button with × symbol -->
       <button class="modal-close" id="close-modal">&times;</button>
+
+      <!-- Modal body containing event details -->
       <div class="modal-body">
+        <!-- Event image container (background image set via JavaScript) -->
         <div id="modal-image" class="modal-image"></div>
+
+        <!-- Event text information -->
         <div>
           <h3 id="modal-title" class="modal-title"></h3>
+          <!-- Event title -->
           <p id="modal-subtitle" class="modal-subtitle"></p>
+          <!-- Event subtitle -->
           <div id="modal-time" class="modal-time"></div>
+          <!-- Event time -->
           <div id="modal-address" class="modal-address"></div>
+          <!-- Event address -->
           <p id="modal-description" class="modal-description"></p>
+          <!-- Event description -->
         </div>
       </div>
     </div>
@@ -66,6 +101,13 @@ const currentDay = now.getDate();
 </div>
 
 <style is:global>
+  /* The 'is:global' directive is necessary here because Astro automatically adds unique class
+  names to elements and their corresponding CSS rules, making styles component-specific.
+  
+  However, this calendar component creates DOM elements dynamically with JavaScript
+  (like .calendar-day, .event, .modal-overlay, etc.), and these dynamically created
+  elements won't have Astro's scoped class names. Without 'is:global', our CSS rules
+  wouldn't match the JavaScript-generated elements, leaving them unstyled. */
   .calendar-container {
     max-width: 100%;
     margin: 0 auto;
@@ -104,7 +146,6 @@ const currentDay = now.getDate();
     justify-content: center;
     transition: all 0.2s ease;
   }
-
   .nav-button:hover {
     background: var(--rolig);
     color: white;
@@ -115,7 +156,6 @@ const currentDay = now.getDate();
     color: black;
     margin: 0;
   }
-
   .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -417,56 +457,116 @@ const currentDay = now.getDate();
 </style>
 
 <script define:vars={{ allEvents, monthNames, currentMonth, currentYear, currentDay }}>
+  /**
+   * The 'define:vars' directive is essential for passing server-side data to client-side JavaScript.
+   * In Astro, there's a clear separation between:
+   * 1. Server-side code (runs during build/SSR) - the fetch request and data processing above
+   * 2. Client-side code (runs in the browser) - this <script> block
+   */
+
+  // Global variables to track the currently displayed month and year
+  // These can be different from the current date when user navigates
   let displayMonth = currentMonth;
   let displayYear = currentYear;
 
+  /**
+   * INITIALIZATION
+   * Wait for DOM to be fully loaded before setting up the calendar
+   */
   document.addEventListener("DOMContentLoaded", function () {
-    renderCalendar();
-    setupEventHandlers();
+    renderCalendar(); // Initial calendar render
+    setupEventHandlers(); // Set up click handlers for navigation and modal
   });
 
+  /**
+   * UTILITY FUNCTION: Convert time string to minutes
+   * Used for sorting events by start time within each day
+   *
+   * timeStr - Time in HH:MM format (e.g., "14:30")
+   * returns - Total minutes since midnight (e.g., 870 for 14:30)
+   */
   function timeToMinutes(timeStr) {
     if (!timeStr) return 0;
     const [hours, minutes] = timeStr.split(":").map(Number);
     return hours * 60 + minutes;
   }
 
+  /**
+   * MAIN CALENDAR RENDERING FUNCTION
+   * This function rebuilds the entire calendar grid based on displayMonth/displayYear
+   * It handles:
+   * - Updating the month title
+   * - Calculating which days to show (including prev/next month days)
+   * - Filtering and displaying events for each day
+   * - Highlighting today's date
+   */
   function renderCalendar() {
+    // Update the month title display
     const monthTitle = document.getElementById("current-month");
     monthTitle.textContent = `${monthNames[displayMonth - 1]}, ${displayYear}`;
 
+    // Get the calendar grid container and preserve day headers
     const calendarGrid = document.getElementById("calendar-grid");
     const dayHeaders = calendarGrid.querySelectorAll(".day-header");
+
+    // Clear existing content but keep day headers
     calendarGrid.innerHTML = "";
     dayHeaders.forEach((header) => calendarGrid.appendChild(header));
 
+    /**
+     * DATE CALCULATIONS
+     * Calculate which days to display in the calendar grid
+     */
+
+    // Get first and last day of the current month
     const firstDay = new Date(displayYear, displayMonth - 1, 1);
     const lastDay = new Date(displayYear, displayMonth, 0);
+
+    // Calculate day of week for first day (0=Sunday, 1=Monday, etc.)
+    // Convert to Monday-first format (0=Monday, 1=Tuesday, etc.)
     const firstDayOfWeek = (firstDay.getDay() + 6) % 7;
+
+    // Get number of days in current month
     const daysInMonth = lastDay.getDate();
+
+    // Get information about previous month for filling in empty cells
     const prevMonth = new Date(displayYear, displayMonth - 1, 0);
     const daysInPrevMonth = prevMonth.getDate();
 
+    // Array to store all calendar day objects
     const calendarDays = [];
 
-    // Previous month days
+    /**
+     * PREVIOUS MONTH DAYS
+     * Fill in the beginning of the calendar with days from previous month
+     */
     for (let i = firstDayOfWeek - 1; i >= 0; i--) {
       const day = daysInPrevMonth - i;
+
+      // Calculate which month/year these days belong to
       const prevMonthNum = displayMonth === 1 ? 12 : displayMonth - 1;
       const prevYear = displayMonth === 1 ? displayYear - 1 : displayYear;
+
+      // Filter events for this specific day and sort by start time
       const dayEvents = allEvents.filter((event) => event.day === day && event.month === prevMonthNum && event.year === prevYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
-        isCurrentMonth: false,
+        isCurrentMonth: false, // Mark as not part of current month
         events: dayEvents,
-        isToday: false,
+        isToday: false, // Previous month days can't be today
       });
     }
 
-    // Current month days
+    /**
+     * CURRENT MONTH DAYS
+     * Add all days of the currently displayed month
+     */
     for (let day = 1; day <= daysInMonth; day++) {
+      // Filter events for this specific day and sort by start time
       const dayEvents = allEvents.filter((event) => event.day === day && event.month === displayMonth && event.year === displayYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
+
+      // Check if this day is today (considering current display month/year)
       const isToday = day === currentDay && displayMonth === currentMonth && displayYear === currentYear;
 
       calendarDays.push({
@@ -477,35 +577,53 @@ const currentDay = now.getDate();
       });
     }
 
-    // Next month days
+    /**
+     * NEXT MONTH DAYS
+     * Fill remaining calendar cells with days from next month
+     * Ensure we have complete weeks (multiples of 7 days)
+     */
     const totalCells = Math.ceil(calendarDays.length / 7) * 7;
     for (let day = 1; calendarDays.length < totalCells; day++) {
+      // Calculate which month/year these days belong to
       const nextMonthNum = displayMonth === 12 ? 1 : displayMonth + 1;
       const nextYear = displayMonth === 12 ? displayYear + 1 : displayYear;
+
+      // Filter events for this specific day and sort by start time
       const dayEvents = allEvents.filter((event) => event.day === day && event.month === nextMonthNum && event.year === nextYear).sort((a, b) => timeToMinutes(a.start_time) - timeToMinutes(b.start_time));
 
       calendarDays.push({
         day,
-        isCurrentMonth: false,
+        isCurrentMonth: false, // Mark as not part of current month
         events: dayEvents,
-        isToday: false,
+        isToday: false, // Next month days can't be today
       });
     }
 
-    // Render calendar days
+    /**
+     * RENDER CALENDAR DAYS
+     * Create DOM elements for each day and its events
+     */
     calendarDays.forEach(({ day, isCurrentMonth, events, isToday }) => {
+      // Create the day container element
       const dayElement = document.createElement("div");
       dayElement.className = `calendar-day ${!isCurrentMonth ? "other-month" : ""} ${isToday ? "today" : ""}`;
 
+      // Create and add the day number
       const dayNumber = document.createElement("div");
       dayNumber.className = `day-number ${isCurrentMonth ? "" : "other-day"} ${isToday ? "today" : ""}`;
       dayNumber.textContent = day;
       dayElement.appendChild(dayNumber);
 
+      /**
+       * RENDER EVENTS FOR THIS DAY
+       * Create event elements with all necessary data attributes for modal display
+       */
       events.forEach((event) => {
         const eventElement = document.createElement("div");
         eventElement.className = "event";
 
+        // Store event data as data attributes for modal display
+        // This allows us to access all event information when clicked
         eventElement.dataset.eventId = event.id;
         eventElement.dataset.eventTitle = event.title;
         eventElement.dataset.eventSubtitle = event.subtitle || "";
@@ -514,11 +632,13 @@ const currentDay = now.getDate();
         eventElement.dataset.eventAddress = event.address || "";
         eventElement.dataset.eventImage = event.image || "";
 
+        // Create and add event title
         const titleElement = document.createElement("div");
         titleElement.className = "event-title";
         titleElement.textContent = event.title;
         eventElement.appendChild(titleElement);
 
+        // Add subtitle if it exists
         if (event.subtitle) {
           const subtitleElement = document.createElement("div");
           subtitleElement.className = "event-subtitle";
@@ -526,6 +646,7 @@ const currentDay = now.getDate();
           eventElement.appendChild(subtitleElement);
         }
 
+        // Add time if it exists, with "Kl." prefix
         if (event.start_time) {
           const timeElement = document.createElement("div");
           timeElement.className = "event-time";
@@ -533,40 +654,68 @@ const currentDay = now.getDate();
           eventElement.appendChild(timeElement);
         }
 
+        // Add the complete event element to the day
         dayElement.appendChild(eventElement);
       });
 
+      // Add the complete day element to the calendar grid
       calendarGrid.appendChild(dayElement);
     });
 
+    // Set up click handlers for the newly created events
     setupEventClickHandlers();
   }
 
+  /**
+   * EVENT HANDLER SETUP
+   * Set up click handlers for month navigation and modal controls
+   */
   function setupEventHandlers() {
+    /**
+     * PREVIOUS MONTH BUTTON
+     * Navigate to the previous month, handling year rollover
+     */
     document.getElementById("prev-month").addEventListener("click", function () {
       if (displayMonth === 1) {
+        // If we're in January, go to December of previous year
         displayMonth = 12;
         displayYear -= 1;
       } else {
+        // Otherwise, just go to previous month
         displayMonth -= 1;
       }
+      // Re-render calendar with new month/year
       renderCalendar();
     });
 
+    /**
+     * NEXT MONTH BUTTON
+     * Navigate to the next month, handling year rollover
+     */
     document.getElementById("next-month").addEventListener("click", function () {
       if (displayMonth === 12) {
+        // If we're in December, go to January of next year
         displayMonth = 1;
         displayYear += 1;
       } else {
+        // Otherwise, just go to next month
         displayMonth += 1;
       }
+      // Re-render calendar with new month/year
       renderCalendar();
     });
 
+    /**
+     * MODAL SETUP
+     * Set up event handlers for opening and closing the event modal
+     */
     const modal = document.getElementById("event-modal");
     const closeButton = document.getElementById("close-modal");
 
+    // Close modal when close button is clicked
     closeButton.addEventListener("click", closeModal);
+
+    // Close modal when clicking outside the modal content (on the overlay)
     modal.addEventListener("click", function (e) {
       if (e.target === modal) {
         closeModal();
@@ -574,11 +723,17 @@ const currentDay = now.getDate();
     });
   }
 
+  /**
+   * EVENT CLICK HANDLERS
+   * Set up click handlers for individual events to show modal
+   * This function is called after each calendar re-render
+   */
   function setupEventClickHandlers() {
     const events = document.querySelectorAll(".event");
 
     events.forEach((event) => {
       event.addEventListener("click", function () {
+        // Extract event data from data attributes
         const title = this.dataset.eventTitle;
         const subtitle = this.dataset.eventSubtitle;
         const description = this.dataset.eventDescription;
@@ -586,30 +741,41 @@ const currentDay = now.getDate();
         const address = this.dataset.eventAddress;
         const image = this.dataset.eventImage;
 
+        // Populate modal with event information
         document.getElementById("modal-title").textContent = title;
         document.getElementById("modal-subtitle").textContent = subtitle || "";
         document.getElementById("modal-description").textContent = description || "";
         document.getElementById("modal-time").textContent = time ? `Kl. ${time}` : "";
         document.getElementById("modal-address").textContent = address || "";
 
+        // Handle event image display
         const modalImage = document.getElementById("modal-image");
         if (image) {
+          // Set background image if image URL exists
           modalImage.style.backgroundImage = `url(${image})`;
           modalImage.style.display = "block";
         } else {
+          // Hide image container if no image is available
           modalImage.style.display = "none";
         }
 
+        // Show the modal
         const modal = document.getElementById("event-modal");
         modal.classList.remove("hidden");
+        // Prevent scrolling of background content when modal is open
         document.body.style.overflow = "hidden";
       });
     });
   }
 
+  /**
+   * CLOSE MODAL FUNCTION
+   * Hides the event modal and restores normal page scrolling
+   */
   function closeModal() {
     const modal = document.getElementById("event-modal");
     modal.classList.add("hidden");
+    // Restore normal scrolling when modal is closed
     document.body.style.overflow = "auto";
   }
 </script>
